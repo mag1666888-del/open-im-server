@@ -5,9 +5,29 @@
 
 set -e
 
-# 配置变量（请根据实际情况修改）
-FRONTEND_SOURCE_DIR="/opt/im-frontend"  # 前端源代码目录
-OPENIM_SERVER_DIR="/opt/open-im-server"  # OpenIM 服务器目录
+# 配置变量（自动检测路径）
+# 检测当前脚本所在目录
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+OPENIM_SERVER_DIR="$SCRIPT_DIR"  # OpenIM 服务器目录（脚本所在目录）
+
+# 检测前端源代码目录（多种可能路径）
+FRONTEND_SOURCE_DIR=""
+for path in "/opt/im-frontend" "/home/openim/im-frontend" "../im-frontend" "./im-frontend"; do
+    if [ -d "$path" ]; then
+        FRONTEND_SOURCE_DIR="$path"
+        break
+    fi
+done
+
+# 如果自动检测失败，使用默认路径
+if [ -z "$FRONTEND_SOURCE_DIR" ]; then
+    FRONTEND_SOURCE_DIR="/opt/im-frontend"
+fi
+
+# 显示检测到的路径
+echo "检测到的路径："
+echo "  OpenIM 服务器目录: $OPENIM_SERVER_DIR"
+echo "  前端源代码目录: $FRONTEND_SOURCE_DIR"
 
 # 颜色定义
 RED='\033[0;31m'
