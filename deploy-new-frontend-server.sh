@@ -158,6 +158,16 @@ create_env_file() {
     
     cat > "$OPENIM_SERVER_DIR/docker-compose.env" << EOF
 # OpenIM Docker Compose 环境变量
+# 数据目录
+DATA_DIR=./data
+MONGO_BACKUP_DIR=./backup
+
+# 镜像配置
+MONGO_IMAGE=mongo:7.0
+REDIS_IMAGE=redis:7.2-alpine
+ETCD_IMAGE=quay.io/coreos/etcd:v3.5.10
+KAFKA_IMAGE=bitnami/kafka:3.6
+MINIO_IMAGE=minio/minio:latest
 
 # 现有服务镜像
 OPENIM_WEB_FRONT_IMAGE=openim-web-front:latest
@@ -391,8 +401,8 @@ docker build -f Dockerfile.admin-new-front-2 -t openim-admin-new-front-2:latest 
 
 # 启动服务
 echo "启动服务..."
-docker-compose --env-file docker-compose.env up -d openim-admin-new-front-1
-docker-compose --env-file docker-compose.env up -d openim-admin-new-front-2
+docker compose --env-file docker-compose.env up -d openim-admin-new-front-1
+docker compose --env-file docker-compose.env up -d openim-admin-new-front-2
 
 echo "部署完成！"
 echo "服务访问地址："
