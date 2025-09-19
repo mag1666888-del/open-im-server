@@ -60,16 +60,16 @@ cd /opt/open-im-server
 
 ```bash
 # 查看服务状态
-docker-compose --env-file docker-compose.env ps
+docker compose --env-file docker-compose.env ps
 
 # 查看服务日志
-docker-compose --env-file docker-compose.env logs -f openim-admin-new-front-1
+docker compose --env-file docker-compose.env logs -f openim-admin-new-front-1
 
 # 重启服务
-docker-compose --env-file docker-compose.env restart openim-admin-new-front-1
+docker compose --env-file docker-compose.env restart openim-admin-new-front-1
 
 # 停止服务
-docker-compose --env-file docker-compose.env stop openim-admin-new-front-1
+docker compose --env-file docker-compose.env stop openim-admin-new-front-1
 ```
 
 ## ⚠️ 注意事项

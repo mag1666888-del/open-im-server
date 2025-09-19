@@ -83,36 +83,36 @@ cd /opt/open-im-server
 
 ```bash
 # 查看所有服务
-docker-compose --env-file docker-compose.env ps
+docker compose --env-file docker-compose.env ps
 
 # 仅查看新添加的服务
-docker-compose --env-file docker-compose.env ps | grep admin-new-front
+docker compose --env-file docker-compose.env ps | grep admin-new-front
 ```
 
 ### 查看服务日志
 
 ```bash
 # 查看 front-1 日志
-docker-compose --env-file docker-compose.env logs -f openim-admin-new-front-1
+docker compose --env-file docker-compose.env logs -f openim-admin-new-front-1
 
 # 查看 front-2 日志
-docker-compose --env-file docker-compose.env logs -f openim-admin-new-front-2
+docker compose --env-file docker-compose.env logs -f openim-admin-new-front-2
 ```
 
 ### 重启服务
 
 ```bash
 # 重启所有新服务
-docker-compose --env-file docker-compose.env restart openim-admin-new-front-1
-docker-compose --env-file docker-compose.env restart openim-admin-new-front-2
+docker compose --env-file docker-compose.env restart openim-admin-new-front-1
+docker compose --env-file docker-compose.env restart openim-admin-new-front-2
 ```
 
 ### 停止服务
 
 ```bash
 # 停止新服务
-docker-compose --env-file docker-compose.env stop openim-admin-new-front-1
-docker-compose --env-file docker-compose.env stop openim-admin-new-front-2
+docker compose --env-file docker-compose.env stop openim-admin-new-front-1
+docker compose --env-file docker-compose.env stop openim-admin-new-front-2
 ```
 
 ## 🔍 验证部署
@@ -120,7 +120,7 @@ docker-compose --env-file docker-compose.env stop openim-admin-new-front-2
 ### 1. 检查服务运行状态
 
 ```bash
-docker-compose --env-file docker-compose.env ps | grep admin-new-front
+docker compose --env-file docker-compose.env ps | grep admin-new-front
 ```
 
 应该看到类似输出：
@@ -194,7 +194,7 @@ docker build -f /opt/im-frontend/Dockerfile.admin-new-front-1 -t openim-admin-ne
 
 ```bash
 # 查看详细错误日志
-docker-compose --env-file docker-compose.env logs openim-admin-new-front-1
+docker compose --env-file docker-compose.env logs openim-admin-new-front-1
 
 # 检查环境变量
 cat docker-compose.env
@@ -230,10 +230,10 @@ htop
 
 ```bash
 # 实时查看日志
-docker-compose --env-file docker-compose.env logs -f
+docker compose --env-file docker-compose.env logs -f
 
 # 查看最近日志
-docker-compose --env-file docker-compose.env logs --tail=100 openim-admin-new-front-1
+docker compose --env-file docker-compose.env logs --tail=100 openim-admin-new-front-1
 ```
 
 ## 🎉 完成
@@ -251,7 +251,7 @@ docker-compose --env-file docker-compose.env logs --tail=100 openim-admin-new-fr
 如遇到问题，请检查：
 
 1. **Docker 状态**: `docker info`
-2. **服务状态**: `docker-compose --env-file docker-compose.env ps`
-3. **日志信息**: `docker-compose --env-file docker-compose.env logs`
+2. **服务状态**: `docker compose --env-file docker-compose.env ps`
+3. **日志信息**: `docker compose --env-file docker-compose.env logs`
 4. **网络连接**: `ping` 后端服务器
 5. **端口占用**: `netstat -tlnp | grep :1100`

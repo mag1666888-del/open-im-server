@@ -100,12 +100,13 @@ check_requirements() {
     fi
     
     # 检查 Docker Compose
-    if ! command -v docker-compose &> /dev/null; then
+    if ! docker compose version &> /dev/null; then
         log_error "Docker Compose 未安装，请先安装 Docker Compose"
         if [ "$OS_TYPE" = "centos" ]; then
             log_info "CentOS 安装 Docker Compose 命令:"
             log_info "sudo curl -L \"https://github.com/docker/compose/releases/latest/download/docker-compose-\$(uname -s)-\$(uname -m)\" -o /usr/local/bin/docker-compose"
             log_info "sudo chmod +x /usr/local/bin/docker-compose"
+            log_info "或者使用新版本: docker compose plugin"
         fi
         exit 1
     fi
@@ -238,10 +239,10 @@ check_existing_services() {
     cd "$OPENIM_SERVER_DIR"
     
     # 检查是否有运行中的 OpenIM 服务
-    if docker-compose ps 2>/dev/null | grep -q "openim"; then
+    if docker compose ps 2>/dev/null | grep -q "openim"; then
         log_success "发现运行中的 OpenIM 服务"
         log_info "现有服务状态:"
-        docker-compose ps | grep "openim" || true
+        docker compose ps | grep "openim" || true
     else
         log_warning "未发现运行中的 OpenIM 服务"
         log_info "将仅启动新的前端服务"
@@ -260,7 +261,7 @@ deploy_services() {
     
     # 启动新服务
     log_info "启动 openim-admin-new-front-1 服务..."
-    if docker-compose --env-file docker-compose.env up -d openim-admin-new-front-1; then
+    if docker compose --env-file docker-compose.env up -d openim-admin-new-front-1; then
         log_success "openim-admin-new-front-1 服务已启动 (端口 11003)"
     else
         log_error "openim-admin-new-front-1 服务启动失败"
@@ -268,7 +269,7 @@ deploy_services() {
     fi
     
     log_info "启动 openim-admin-new-front-2 服务..."
-    if docker-compose --env-file docker-compose.env up -d openim-admin-new-front-2; then
+    if docker compose --env-file docker-compose.env up -d openim-admin-new-front-2; then
         log_success "openim-admin-new-front-2 服务已启动 (端口 11004)"
     else
         log_error "openim-admin-new-front-2 服务启动失败"
@@ -282,8 +283,8 @@ restart_services() {
     
     cd "$OPENIM_SERVER_DIR"
     
-    docker-compose --env-file docker-compose.env restart openim-admin-new-front-1
-    docker-compose --env-file docker-compose.env restart openim-admin-new-front-2
+    docker compose --env-file docker-compose.env restart openim-admin-new-front-1
+    docker compose --env-file docker-compose.env restart openim-admin-new-front-2
     
     log_success "服务重启完成"
 }
@@ -294,8 +295,8 @@ stop_services() {
     
     cd "$OPENIM_SERVER_DIR"
     
-    docker-compose --env-file docker-compose.env stop openim-admin-new-front-1
-    docker-compose --env-file docker-compose.env stop openim-admin-new-front-2
+    docker compose --env-file docker-compose.env stop openim-admin-new-front-1
+    docker compose --env-file docker-compose.env stop openim-admin-new-front-2
     
     log_success "服务已停止"
 }
@@ -307,7 +308,7 @@ show_logs() {
     cd "$OPENIM_SERVER_DIR"
     
     echo "=== openim-admin-new-front-1 日志 ==="
-    docker-compose --env-file docker-compose.env logs -f openim-admin-new-front-1
+    docker compose --env-file docker-compose.env logs -f openim-admin-new-front-1
 }
 
 # 查看状态
@@ -317,7 +318,7 @@ show_status() {
     cd "$OPENIM_SERVER_DIR"
     
     echo "=== 服务状态 ==="
-    docker-compose --env-file docker-compose.env ps | grep admin-new-front
+    docker compose --env-file docker-compose.env ps | grep admin-new-front
     
     echo ""
     echo "=== 端口占用 ==="

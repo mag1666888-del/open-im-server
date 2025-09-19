@@ -71,11 +71,12 @@ check_requirements() {
     fi
     
     # 检查 Docker Compose
-    if ! command -v docker-compose &> /dev/null; then
+    if ! docker compose version &> /dev/null; then
         log_error "Docker Compose 未安装，请先安装 Docker Compose"
         log_info "安装命令:"
         log_info "sudo curl -L \"https://github.com/docker/compose/releases/latest/download/docker-compose-\$(uname -s)-\$(uname -m)\" -o /usr/local/bin/docker-compose"
         log_info "sudo chmod +x /usr/local/bin/docker-compose"
+        log_info "或者使用新版本: docker compose plugin"
         exit 1
     fi
     
@@ -185,10 +186,10 @@ check_existing_services() {
     cd "$OPENIM_SERVER_DIR"
     
     # 检查是否有运行中的 OpenIM 服务
-    if docker-compose ps 2>/dev/null | grep -q "openim"; then
+    if docker compose ps 2>/dev/null | grep -q "openim"; then
         log_success "发现运行中的 OpenIM 服务"
         log_info "现有服务状态:"
-        docker-compose ps | grep "openim" || true
+        docker compose ps | grep "openim" || true
     else
         log_warning "未发现运行中的 OpenIM 服务"
         log_info "将仅启动新的前端服务"
@@ -207,7 +208,7 @@ deploy_services() {
     
     # 启动新服务
     log_info "启动 openim-admin-new-front-1 服务..."
-    if docker-compose --env-file docker-compose.env up -d openim-admin-new-front-1; then
+    if docker compose --env-file docker-compose.env up -d openim-admin-new-front-1; then
         log_success "openim-admin-new-front-1 服务已启动 (端口 11003)"
     else
         log_error "openim-admin-new-front-1 服务启动失败"
@@ -215,7 +216,7 @@ deploy_services() {
     fi
     
     log_info "启动 openim-admin-new-front-2 服务..."
-    if docker-compose --env-file docker-compose.env up -d openim-admin-new-front-2; then
+    if docker compose --env-file docker-compose.env up -d openim-admin-new-front-2; then
         log_success "openim-admin-new-front-2 服务已启动 (端口 11004)"
     else
         log_error "openim-admin-new-front-2 服务启动失败"
@@ -232,7 +233,7 @@ verify_deployment() {
     
     # 检查服务状态
     log_info "服务状态:"
-    docker-compose --env-file docker-compose.env ps | grep admin-new-front
+    docker compose --env-file docker-compose.env ps | grep admin-new-front
     
     # 测试服务访问
     log_info "测试服务访问..."
@@ -265,10 +266,10 @@ show_service_info() {
     echo "API 路径: /api/admin/*, /api/user/*, /api/im/*"
     echo ""
     echo "管理命令:"
-    echo "  查看状态: docker-compose --env-file docker-compose.env ps"
-    echo "  查看日志: docker-compose --env-file docker-compose.env logs -f openim-admin-new-front-1"
-    echo "  重启服务: docker-compose --env-file docker-compose.env restart openim-admin-new-front-1"
-    echo "  停止服务: docker-compose --env-file docker-compose.env stop openim-admin-new-front-1"
+    echo "  查看状态: docker compose --env-file docker-compose.env ps"
+    echo "  查看日志: docker compose --env-file docker-compose.env logs -f openim-admin-new-front-1"
+    echo "  重启服务: docker compose --env-file docker-compose.env restart openim-admin-new-front-1"
+    echo "  停止服务: docker compose --env-file docker-compose.env stop openim-admin-new-front-1"
 }
 
 # 主函数
