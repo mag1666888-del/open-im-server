@@ -275,6 +275,30 @@ services:
     networks:
       - openim
 
+  openim-admin-new-front-1:
+    image: ${OPENIM_ADMIN_NEW_FRONT_1_IMAGE}
+    container_name: openim-admin-new-front-1
+    restart: always
+    ports:
+      - "11003:80"
+    environment:
+      - BACKEND_SERVER=47.239.126.22
+      - NODE_ENV=production
+    networks:
+      - openim
+
+  openim-admin-new-front-2:
+    image: ${OPENIM_ADMIN_NEW_FRONT_2_IMAGE}
+    container_name: openim-admin-new-front-2
+    restart: always
+    ports:
+      - "11004:80"
+    environment:
+      - BACKEND_SERVER=47.83.254.218
+      - NODE_ENV=production
+    networks:
+      - openim
+
   prometheus:
     image: ${PROMETHEUS_IMAGE}
     container_name: prometheus

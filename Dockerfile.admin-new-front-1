@@ -1,0 +1,60 @@
+# OpenIM Admin New Front 1 Dockerfile
+# 基于 im-frontend 的部署方案，代理到 47.239.126.22
+
+# ==================== 构建阶段 ====================
+FROM node:18-alpine as builder
+
+# 设置工作目录
+WORKDIR /app
+
+# 复制package文件
+COPY package*.json ./
+COPY pnpm-lock.yaml ./
+
+# 安装pnpm
+RUN npm install -g pnpm
+
+# 安装依赖
+RUN pnpm install --frozen-lockfile
+
+# 复制源代码
+COPY . .
+
+# 构建应用
+RUN pnpm run build
+
+# ==================== 生产阶段 ====================
+FROM nginx:alpine
+
+# 安装必要的工具
+RUN apk add --no-cache gettext curl
+
+# 复制构建产物
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# 复制NGINX配置模板
+COPY config/nginx-admin-new-front-1-template.conf /etc/nginx/conf.d/default.conf.template
+
+# 创建启动脚本
+RUN cat > /docker-entrypoint.d/nginx-config.sh << 'EOF'
+#!/bin/sh
+# 替换配置文件中的服务器IP
+if [ -n "$BACKEND_SERVER" ]; then
+    sed "s/{{SERVER_IP}}/$BACKEND_SERVER/g" /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf
+else
+    cp /etc/nginx/conf.d/default.conf.template /etc/nginx/conf.d/default.conf
+fi
+EOF
+
+# 给脚本执行权限
+RUN chmod +x /docker-entrypoint.d/nginx-config.sh
+
+# 暴露端口
+EXPOSE 80 443
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost/ || exit 1
+
+# 启动NGINX
+CMD ["nginx", "-g", "daemon off;"]
