@@ -18,7 +18,7 @@ package direct
 //	"context"
 //	"fmt"
 //
-//	config2 "github.com/openimsdk/open-im-server/v3/pkg/common/config"
+//	config2 "github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
 //	"github.com/openimsdk/tools/errs"
 //	"google.golang.org/grpc"
 //	"google.golang.org/grpc/credentials/insecure"

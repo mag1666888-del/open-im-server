@@ -3,10 +3,10 @@ package conversation
 import (
 	"context"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	dbModel "github.com/openimsdk/open-im-server/v3/pkg/common/storage/model"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/callbackstruct"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	dbModel "github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/model"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/webhook"
 	"github.com/openimsdk/tools/utils/datautil"
 )
 

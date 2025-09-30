@@ -4,12 +4,12 @@ import (
 	"context"
 	"time"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/cache/cachekey"
-	"github.com/openimsdk/open-im-server/v3/pkg/localcache"
-	"github.com/openimsdk/open-im-server/v3/pkg/rpcli"
-	"github.com/openimsdk/protocol/auth"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/convert"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/cache/cachekey"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/localcache"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/rpcli"
+	"github.com/mag1666888-del/protocol/auth"
 	"github.com/openimsdk/tools/log"
 	"github.com/redis/go-redis/v9"
 )

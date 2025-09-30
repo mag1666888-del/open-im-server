@@ -5,11 +5,11 @@ import (
 	"time"
 
 	"github.com/dtm-labs/rockscache"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/cache"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/cache/cachekey"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/database"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/model"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/cache"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/cache/cachekey"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/database"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/model"
 	"github.com/redis/go-redis/v9"
 )
 

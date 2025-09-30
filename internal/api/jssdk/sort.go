@@ -1,6 +1,6 @@
 package jssdk
 
-import "github.com/openimsdk/protocol/msg"
+import "github.com/mag1666888-del/protocol/msg"
 
 type sortActiveConversations struct {
 	Conversation          []*msg.ActiveConversation

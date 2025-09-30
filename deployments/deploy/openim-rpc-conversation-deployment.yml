@@ -14,33 +14,33 @@ spec:
     spec:
       containers:
         - name: conversation-rpc-server-container
-          image: openim/openim-rpc-conversation:v3.8.3
+          image: my-open-im/my-open-im-rpc-conversation:v3.8.3
           env:
             - name: CONFIG_PATH
               value: "/config"
             - name: IMENV_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: openim-redis-secret
+                  name: my-open-im-redis-secret
                   key: redis-password
             - name: IMENV_MONGODB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: openim-mongo-secret
+                  name: my-open-im-mongo-secret
                   key: mongo_openim_username
             - name: IMENV_MONGODB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: openim-mongo-secret
+                  name: my-open-im-mongo-secret
                   key: mongo_openim_password
           volumeMounts:
-            - name: openim-config
+            - name: my-open-im-config
               mountPath: "/config"
               readOnly: true
           ports:
             - containerPort: 10220
             - containerPort: 12220
       volumes:
-        - name: openim-config
+        - name: my-open-im-config
           configMap:
-            name: openim-config
+            name: my-open-im-config

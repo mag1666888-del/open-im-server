@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@ import (
 	"io"
 	"net/http"
 
-	gettoken "github.com/openimsdk/open-im-server/v3/test/e2e/api/token"
-	"github.com/openimsdk/open-im-server/v3/test/e2e/framework/config"
+	gettoken "github.com/mag1666888-del/my-open-im-server/v3/test/e2e/api/token"
+	"github.com/mag1666888-del/my-open-im-server/v3/test/e2e/framework/config"
 )
 
 // ForceLogoutRequest represents a request to force a user logout.

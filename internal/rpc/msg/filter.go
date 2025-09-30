@@ -4,9 +4,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/protocol/constant"
-	pbchat "github.com/openimsdk/protocol/msg"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/protocol/constant"
+	pbchat "github.com/mag1666888-del/protocol/msg"
 	"github.com/openimsdk/tools/utils/datautil"
 )
 

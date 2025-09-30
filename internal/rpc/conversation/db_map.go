@@ -3,8 +3,8 @@ package conversation
 import (
 	"context"
 
-	dbModel "github.com/openimsdk/open-im-server/v3/pkg/common/storage/model"
-	"github.com/openimsdk/protocol/conversation"
+	dbModel "github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/model"
+	"github.com/mag1666888-del/protocol/conversation"
 )
 
 func UpdateConversationsMap(ctx context.Context, req *conversation.SetConversationsReq) (m map[string]any, conversation dbModel.Conversation, err error) {

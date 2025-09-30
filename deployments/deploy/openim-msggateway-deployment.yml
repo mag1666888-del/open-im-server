@@ -13,24 +13,24 @@ spec:
         app: messagegateway-rpc-server
     spec:
       containers:
-        - name: openim-msggateway-container
-          image: openim/openim-msggateway:v3.8.3
+        - name: my-open-im-msggateway-container
+          image: my-open-im/my-open-im-msggateway:v3.8.3
           env:
             - name: CONFIG_PATH
               value: "/config"
             - name: IMENV_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: openim-redis-secret
+                  name: my-open-im-redis-secret
                   key: redis-password
           volumeMounts:
-            - name: openim-config
+            - name: my-open-im-config
               mountPath: "/config"
               readOnly: true
           ports:
             - containerPort: 10140
             - containerPort: 12001
       volumes:
-        - name: openim-config
+        - name: my-open-im-config
           configMap:
-            name: openim-config
+            name: my-open-im-config

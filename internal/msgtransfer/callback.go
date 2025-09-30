@@ -4,17 +4,17 @@ import (
 	"context"
 	"encoding/base64"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/apistruct"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/apistruct"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/webhook"
+	"github.com/mag1666888-del/protocol/constant"
+	"github.com/mag1666888-del/protocol/sdkws"
 	"github.com/openimsdk/tools/mcontext"
 	"github.com/openimsdk/tools/utils/datautil"
 	"github.com/openimsdk/tools/utils/stringutil"
 	"google.golang.org/protobuf/proto"
 
-	cbapi "github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
+	cbapi "github.com/mag1666888-del/my-open-im-server/v3/pkg/callbackstruct"
 )
 
 func toCommonCallback(ctx context.Context, msg *sdkws.MsgData, command string) cbapi.CommonCallbackReq {

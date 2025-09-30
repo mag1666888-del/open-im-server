@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -26,14 +26,14 @@ import (
 	"syscall"
 	"time"
 
-	conf "github.com/openimsdk/open-im-server/v3/pkg/common/config"
+	conf "github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/tools/utils/datautil"
 	"github.com/openimsdk/tools/utils/jsonutil"
 	"github.com/openimsdk/tools/utils/network"
 	"google.golang.org/grpc/status"
 
-	kdisc "github.com/openimsdk/open-im-server/v3/pkg/common/discovery"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
+	kdisc "github.com/mag1666888-del/my-open-im-server/v3/pkg/common/discovery"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/prommetrics"
 	"github.com/openimsdk/tools/discovery"
 	"github.com/openimsdk/tools/errs"
 	"github.com/openimsdk/tools/log"

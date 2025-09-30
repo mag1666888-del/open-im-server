@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/openimsdk/protocol/msg"
+	"github.com/mag1666888-del/protocol/msg"
 	"github.com/openimsdk/tools/log"
 	"github.com/openimsdk/tools/mcontext"
 )

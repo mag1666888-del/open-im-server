@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,10 +16,10 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/msggateway"
-	"github.com/openimsdk/protocol/user"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/protocol/constant"
+	"github.com/mag1666888-del/protocol/msggateway"
+	"github.com/mag1666888-del/protocol/user"
 	"github.com/openimsdk/tools/a2r"
 	"github.com/openimsdk/tools/apiresp"
 	"github.com/openimsdk/tools/discovery"

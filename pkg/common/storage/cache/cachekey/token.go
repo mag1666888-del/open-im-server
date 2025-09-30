@@ -3,7 +3,7 @@ package cachekey
 import (
 	"strings"
 
-	"github.com/openimsdk/protocol/constant"
+	"github.com/mag1666888-del/protocol/constant"
 )
 
 const (

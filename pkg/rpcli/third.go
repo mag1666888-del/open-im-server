@@ -1,7 +1,7 @@
 package rpcli
 
 import (
-	"github.com/openimsdk/protocol/third"
+	"github.com/mag1666888-del/protocol/third"
 	"google.golang.org/grpc"
 )
 

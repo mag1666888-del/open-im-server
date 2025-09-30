@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ package api
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/openimsdk/protocol/conversation"
+	"github.com/mag1666888-del/protocol/conversation"
 	"github.com/openimsdk/tools/a2r"
 )
 

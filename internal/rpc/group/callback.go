@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,14 +18,14 @@ import (
 	"context"
 	"time"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/apistruct"
-	"github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/model"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
-	"github.com/openimsdk/protocol/constant"
-	"github.com/openimsdk/protocol/group"
-	"github.com/openimsdk/protocol/wrapperspb"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/apistruct"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/callbackstruct"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/model"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/webhook"
+	"github.com/mag1666888-del/protocol/constant"
+	"github.com/mag1666888-del/protocol/group"
+	"github.com/mag1666888-del/protocol/wrapperspb"
 	"github.com/openimsdk/tools/log"
 	"github.com/openimsdk/tools/mcontext"
 	"github.com/openimsdk/tools/utils/datautil"

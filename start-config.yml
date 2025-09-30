@@ -1,16 +1,16 @@
 serviceBinaries:
-  openim-api: 1
-  openim-crontask: 4
-  openim-rpc-user: 1
-  openim-msggateway: 1
-  openim-push: 8
-  openim-msgtransfer: 8
-  openim-rpc-conversation: 1
-  openim-rpc-auth: 1
-  openim-rpc-group: 1
-  openim-rpc-friend: 1
-  openim-rpc-msg: 1
-  openim-rpc-third: 1
+  my-open-im-api: 1
+  my-open-im-crontask: 4
+  my-open-im-rpc-user: 1
+  my-open-im-msggateway: 1
+  my-open-im-push: 8
+  my-open-im-msgtransfer: 8
+  my-open-im-rpc-conversation: 1
+  my-open-im-rpc-auth: 1
+  my-open-im-rpc-group: 1
+  my-open-im-rpc-friend: 1
+  my-open-im-rpc-msg: 1
+  my-open-im-rpc-third: 1
 toolBinaries:
   - check-free-memory
   - check-component

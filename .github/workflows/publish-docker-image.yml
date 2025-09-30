@@ -37,14 +37,14 @@ jobs:
         with:
           context: ./main-repo
           load: true
-          tags: "openim/openim-server:local"
+          tags: "my-open-im/my-open-im-server:local"
           cache-from: type=gha,scope=build
           cache-to: type=gha,mode=max,scope=build
 
       - name: Checkout compose repository
         uses: actions/checkout@v4
         with:
-          repository: "openimsdk/openim-docker"
+          repository: "openimsdk/my-open-im-docker"
           path: "compose-repo"
 
       - name: Get Internal IP Address
@@ -56,7 +56,7 @@ jobs:
 
       - name: Update .env to use the local image
         run: |
-          sed -i 's|OPENIM_SERVER_IMAGE=.*|OPENIM_SERVER_IMAGE=openim/openim-server:local|' ${{ github.workspace }}/compose-repo/.env
+          sed -i 's|OPENIM_SERVER_IMAGE=.*|OPENIM_SERVER_IMAGE=my-open-im/my-open-im-server:local|' ${{ github.workspace }}/compose-repo/.env
           sed -i 's|MINIO_EXTERNAL_ADDRESS=.*|MINIO_EXTERNAL_ADDRESS=http://${{ steps.get-ip.outputs.ip }}:10005|' ${{ github.workspace }}/compose-repo/.env
 
       - name: Start services using Docker Compose
@@ -71,9 +71,9 @@ jobs:
         uses: docker/metadata-action@v5.6.0
         with:
           images: |
-            openim/openim-server
-            ghcr.io/openimsdk/openim-server
-            registry.cn-hangzhou.aliyuncs.com/openimsdk/openim-server
+            my-open-im/my-open-im-server
+            ghcr.io/openimsdk/my-open-im-server
+            registry.cn-hangzhou.aliyuncs.com/openimsdk/my-open-im-server
           tags: |
             type=ref,event=tag
             type=schedule
@@ -117,7 +117,7 @@ jobs:
 
       - name: Verify multi-platform support
         run: |
-          images=("openim/openim-server" "ghcr.io/openimsdk/openim-server" "registry.cn-hangzhou.aliyuncs.com/openimsdk/openim-server")
+          images=("my-open-im/my-open-im-server" "ghcr.io/openimsdk/my-open-im-server" "registry.cn-hangzhou.aliyuncs.com/openimsdk/my-open-im-server")
           for image in "${images[@]}"; do
               for tag in $(echo "${{ steps.meta.outputs.tags }}" | tr ',' '\n'); do
                   manifest=$(docker manifest inspect "$image:$tag" || echo "error")

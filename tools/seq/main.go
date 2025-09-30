@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/openimsdk/open-im-server/v3/tools/seq/internal"
+	"github.com/mag1666888-del/my-open-im-server/v3/tools/seq/internal"
 )
 
 func main() {

@@ -14,28 +14,28 @@ spec:
     spec:
       containers:
         - name: push-rpc-server-container
-          image: openim/openim-push:v3.8.3
+          image: my-open-im/my-open-im-push:v3.8.3
           env:
             - name: CONFIG_PATH
               value: "/config"
             - name: IMENV_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: openim-redis-secret
+                  name: my-open-im-redis-secret
                   key: redis-password
             - name: IMENV_KAFKA_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: openim-kafka-secret
+                  name: my-open-im-kafka-secret
                   key: kafka-password
           volumeMounts:
-            - name: openim-config
+            - name: my-open-im-config
               mountPath: "/config"
               readOnly: true
           ports:
             - containerPort: 10170
             - containerPort: 12170
       volumes:
-        - name: openim-config
+        - name: my-open-im-config
           configMap:
-            name: openim-config
+            name: my-open-im-config

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
 	"github.com/openimsdk/tools/mq"
 	"github.com/openimsdk/tools/mq/kafka"
 	"github.com/openimsdk/tools/mq/simmq"

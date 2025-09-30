@@ -11,8 +11,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/cache/cachekey"
-	pbuser "github.com/openimsdk/protocol/user"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/cache/cachekey"
+	pbuser "github.com/mag1666888-del/protocol/user"
 	"github.com/openimsdk/tools/log"
 	"github.com/openimsdk/tools/mcontext"
 	"github.com/openimsdk/tools/utils/datautil"

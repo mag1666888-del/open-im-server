@@ -1,25 +1,25 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: openim-ingress
+  name: my-open-im-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: openim-nginx
+  ingressClassName: my-open-im-nginx
   rules:
     - http:
         paths:
-          - path: /openim-api
+          - path: /my-open-im-api
             pathType: Prefix
             backend:
               service:
-                name: openim-api-service
+                name: my-open-im-api-service
                 port:
                   number: 10002
-          - path: /openim-msggateway
+          - path: /my-open-im-msggateway
             pathType: Prefix
             backend:
               service:
-                name: openim-msggateway-service
+                name: my-open-im-msggateway-service
                 port:
                   number: 10001

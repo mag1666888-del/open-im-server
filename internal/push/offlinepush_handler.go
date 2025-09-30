@@ -3,12 +3,12 @@ package push
 import (
 	"context"
 
-	"github.com/openimsdk/open-im-server/v3/internal/push/offlinepush"
-	"github.com/openimsdk/open-im-server/v3/internal/push/offlinepush/options"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
-	"github.com/openimsdk/protocol/constant"
-	pbpush "github.com/openimsdk/protocol/push"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/my-open-im-server/v3/internal/push/offlinepush"
+	"github.com/mag1666888-del/my-open-im-server/v3/internal/push/offlinepush/options"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/prommetrics"
+	"github.com/mag1666888-del/protocol/constant"
+	pbpush "github.com/mag1666888-del/protocol/push"
+	"github.com/mag1666888-del/protocol/sdkws"
 	"github.com/openimsdk/tools/errs"
 	"github.com/openimsdk/tools/log"
 	"github.com/openimsdk/tools/utils/jsonutil"

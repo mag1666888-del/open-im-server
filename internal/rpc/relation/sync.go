@@ -4,14 +4,14 @@ import (
 	"context"
 	"slices"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/util/hashutil"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/util/hashutil"
+	"github.com/mag1666888-del/protocol/sdkws"
 	"github.com/openimsdk/tools/log"
 
-	"github.com/openimsdk/open-im-server/v3/internal/rpc/incrversion"
-	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/model"
-	"github.com/openimsdk/protocol/relation"
+	"github.com/mag1666888-del/my-open-im-server/v3/internal/rpc/incrversion"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/authverify"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/model"
+	"github.com/mag1666888-del/protocol/relation"
 )
 
 func (s *friendServer) NotificationUserInfoUpdate(ctx context.Context, req *relation.NotificationUserInfoUpdateReq) (*relation.NotificationUserInfoUpdateResp, error) {

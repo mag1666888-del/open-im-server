@@ -5,8 +5,8 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/protocol/msg"
+	"github.com/mag1666888-del/protocol/sdkws"
 )
 
 func NewMsgClient(cc grpc.ClientConnInterface) *MsgClient {

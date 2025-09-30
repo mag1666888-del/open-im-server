@@ -3,7 +3,7 @@ package startrpc
 import (
 	"reflect"
 
-	conf "github.com/openimsdk/open-im-server/v3/pkg/common/config"
+	conf "github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
 )
 
 func getConfig[T any](value reflect.Value) *T {

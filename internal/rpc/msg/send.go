@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,17 +17,17 @@ package msg
 import (
 	"context"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/authverify"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/prommetrics"
-	"github.com/openimsdk/open-im-server/v3/pkg/msgprocessor"
-	"github.com/openimsdk/open-im-server/v3/pkg/util/conversationutil"
-	"github.com/openimsdk/protocol/constant"
-	pbconv "github.com/openimsdk/protocol/conversation"
-	pbmsg "github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/protocol/wrapperspb"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/prommetrics"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/msgprocessor"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/util/conversationutil"
+	"github.com/mag1666888-del/protocol/constant"
+	pbconv "github.com/mag1666888-del/protocol/conversation"
+	pbmsg "github.com/mag1666888-del/protocol/msg"
+	"github.com/mag1666888-del/protocol/sdkws"
+	"github.com/mag1666888-del/protocol/wrapperspb"
 	"github.com/openimsdk/tools/errs"
 	"github.com/openimsdk/tools/log"
 	"github.com/openimsdk/tools/mcontext"

@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,11 +15,11 @@
 package convert
 
 import (
-	relationtb "github.com/openimsdk/open-im-server/v3/pkg/common/storage/model"
+	relationtb "github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/model"
 	"github.com/openimsdk/tools/utils/datautil"
 	"time"
 
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/protocol/sdkws"
 )
 
 func UserDB2Pb(user *relationtb.User) *sdkws.UserInfo {

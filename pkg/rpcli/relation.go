@@ -2,7 +2,7 @@ package rpcli
 
 import (
 	"context"
-	"github.com/openimsdk/protocol/relation"
+	"github.com/mag1666888-del/protocol/relation"
 	"google.golang.org/grpc"
 )
 

@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	gp "github.com/grpc-ecosystem/go-grpc-prometheus"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )

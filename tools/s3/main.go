@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/openimsdk/open-im-server/v3/tools/s3/internal"
+	"github.com/mag1666888-del/my-open-im-server/v3/tools/s3/internal"
 	"os"
 )
 

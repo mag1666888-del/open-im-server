@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@ package msg
 import (
 	"context"
 
-	"github.com/openimsdk/protocol/constant"
-	pbmsg "github.com/openimsdk/protocol/msg"
+	"github.com/mag1666888-del/protocol/constant"
+	pbmsg "github.com/mag1666888-del/protocol/msg"
 	"github.com/openimsdk/tools/mcontext"
 )
 

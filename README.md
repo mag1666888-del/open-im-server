@@ -1,20 +1,20 @@
 <p align="center">
-    <a href="https://openim.io">
+    <a href="https://github.com/mag1666888-del/my-open-im-server">
         <img src="./assets/logo-gif/openim-logo.gif" width="60%" height="30%"/>
     </a>
 </p>
 
 <div align="center">
 
-[![Stars](https://img.shields.io/github/stars/openimsdk/open-im-server?style=for-the-badge&logo=github&colorB=ff69b4)](https://github.com/openimsdk/open-im-server/stargazers)
-[![Forks](https://img.shields.io/github/forks/openimsdk/open-im-server?style=for-the-badge&logo=github&colorB=blue)](https://github.com/openimsdk/open-im-server/network/members)
-[![Codecov](https://img.shields.io/codecov/c/github/openimsdk/open-im-server?style=for-the-badge&logo=codecov&colorB=orange)](https://app.codecov.io/gh/openimsdk/open-im-server)
-[![Go Report Card](https://goreportcard.com/badge/github.com/openimsdk/open-im-server?style=for-the-badge)](https://goreportcard.com/report/github.com/openimsdk/open-im-server)
-[![Go Reference](https://img.shields.io/badge/Go%20Reference-blue.svg?style=for-the-badge&logo=go&logoColor=white)](https://pkg.go.dev/github.com/openimsdk/open-im-server/v3)
-[![License](https://img.shields.io/badge/license-Apache--2.0-green?style=for-the-badge)](https://github.com/openimsdk/open-im-server/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/mag1666888-del/my-open-im-server?style=for-the-badge&logo=github&colorB=ff69b4)](https://github.com/mag1666888-del/my-open-im-server/stargazers)
+[![Forks](https://img.shields.io/github/forks/mag1666888-del/my-open-im-server?style=for-the-badge&logo=github&colorB=blue)](https://github.com/mag1666888-del/my-open-im-server/network/members)
+[![Codecov](https://img.shields.io/codecov/c/github/mag1666888-del/my-open-im-server?style=for-the-badge&logo=codecov&colorB=orange)](https://app.codecov.io/gh/mag1666888-del/my-open-im-server)
+[![Go Report Card](https://goreportcard.com/badge/github.com/mag1666888-del/my-open-im-server?style=for-the-badge)](https://goreportcard.com/report/github.com/mag1666888-del/my-open-im-server)
+[![Go Reference](https://img.shields.io/badge/Go%20Reference-blue.svg?style=for-the-badge&logo=go&logoColor=white)](https://pkg.go.dev/github.com/mag1666888-del/my-open-im-server/v3)
+[![License](https://img.shields.io/badge/license-Apache--2.0-green?style=for-the-badge)](https://github.com/mag1666888-del/my-open-im-server/blob/main/LICENSE)
 [![Slack](https://img.shields.io/badge/Slack-500%2B-blueviolet?style=for-the-badge&logo=slack&logoColor=white)](https://join.slack.com/t/openimsdk/shared_invite/zt-2ijy1ys1f-O0aEDCr7ExRZ7mwsHAVg9A)
 [![Best Practices](https://img.shields.io/badge/Best%20Practices-purple?style=for-the-badge)](https://www.bestpractices.dev/projects/8045)
-[![Good First Issues](https://img.shields.io/github/issues/openimsdk/open-im-server/good%20first%20issue?style=for-the-badge&logo=github)](https://github.com/openimsdk/open-im-server/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22good+first+issue%22)
+[![Good First Issues](https://img.shields.io/github/issues/mag1666888-del/my-open-im-server/good%20first%20issue?style=for-the-badge&logo=github)](https://github.com/mag1666888-del/my-open-im-server/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22good+first+issue%22)
 [![Language](https://img.shields.io/badge/Language-Go-blue.svg?style=for-the-badge&logo=go&logoColor=white)](https://golang.org/)
 [![Gurubase](https://img.shields.io/badge/Gurubase-Ask%20OpenIM%20Guru-006BFF?style=for-the-badge)](https://gurubase.io/g/openim)
 
@@ -56,15 +56,15 @@
 - 🚀 [Join our Slack](https://join.slack.com/t/openimsdk/shared_invite/zt-2ijy1ys1f-O0aEDCr7ExRZ7mwsHAVg9A)
 - :eyes: [Join our WeChat Group](https://openim-1253691595.cos.ap-nanjing.myqcloud.com/WechatIMG20.jpeg)
 
-## Ⓜ️ About OpenIM
+## Ⓜ️ About My-Open-IM
 
-Unlike standalone chat applications such as Telegram, Signal, and Rocket.Chat, OpenIM offers an open-source instant messaging solution designed specifically for developers rather than as a directly installable standalone chat app. Comprising OpenIM SDK and OpenIM Server, it provides developers with a complete set of tools and services to integrate instant messaging functions into their applications, including message sending and receiving, user management, and group management. Overall, OpenIM aims to provide developers with the necessary tools and framework to implement efficient instant messaging solutions in their applications.
+This is a fork of OpenIM, customized for my-open-im project. Unlike standalone chat applications such as Telegram, Signal, and Rocket.Chat, My-Open-IM offers an open-source instant messaging solution designed specifically for developers rather than as a directly installable standalone chat app. Comprising My-Open-IM SDK and My-Open-IM Server, it provides developers with a complete set of tools and services to integrate instant messaging functions into their applications, including message sending and receiving, user management, and group management. Overall, My-Open-IM aims to provide developers with the necessary tools and framework to implement efficient instant messaging solutions in their applications.
 
 ![App-OpenIM Relationship](./docs/images/oepnim-design.png)
 
-## 🚀 Introduction to OpenIMSDK
+## 🚀 Introduction to My-Open-IM SDK
 
-**OpenIMSDK**, designed for **OpenIMServer**, is an IM SDK created specifically for integration into client applications. It supports various functionalities and modules:
+**My-Open-IM SDK**, designed for **My-Open-IM Server**, is an IM SDK created specifically for integration into client applications. It supports various functionalities and modules:
 
 - 🌟 Main Features:
 
@@ -117,15 +117,15 @@ Supports Linux, Windows, Mac systems, and ARM and AMD CPU architectures.
 ## :link: Links
 
 - **[Developer Manual](https://docs.openim.io/)**
-- **[Changelog](https://github.com/openimsdk/open-im-server/blob/main/CHANGELOG.md)**
+- **[Changelog](https://github.com/mag1666888-del/my-open-im-server/blob/main/CHANGELOG.md)**
 
 ## :writing_hand: How to Contribute
 
-We welcome contributions of any kind! Please make sure to read our [Contributor Documentation](https://github.com/openimsdk/open-im-server/blob/main/CONTRIBUTING.md) before submitting a Pull Request.
+We welcome contributions of any kind! Please make sure to read our [Contributor Documentation](https://github.com/mag1666888-del/my-open-im-server/blob/main/CONTRIBUTING.md) before submitting a Pull Request.
 
-- **[Report a Bug](https://github.com/openimsdk/open-im-server/issues/new?assignees=&labels=bug&template=bug_report.md&title=)**
-- **[Suggest a Feature](https://github.com/openimsdk/open-im-server/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)**
-- **[Submit a Pull Request](https://github.com/openimsdk/open-im-server/pulls)**
+- **[Report a Bug](https://github.com/mag1666888-del/my-open-im-server/issues/new?assignees=&labels=bug&template=bug_report.md&title=)**
+- **[Suggest a Feature](https://github.com/mag1666888-del/my-open-im-server/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)**
+- **[Submit a Pull Request](https://github.com/mag1666888-del/my-open-im-server/pulls)**
 
 Thank you for contributing to building a powerful instant messaging solution!
 
@@ -135,6 +135,6 @@ This software is licensed under the Apache License 2.0
 
 ## 🔮 Thanks to our contributors!
 
-<a href="https://github.com/openimsdk/open-im-server/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=openimsdk/open-im-server" />
+<a href="https://github.com/mag1666888-del/my-open-im-server/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=mag1666888-del/my-open-im-server" />
 </a>

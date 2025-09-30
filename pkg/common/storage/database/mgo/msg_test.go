@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/model"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/model"
+	"github.com/mag1666888-del/protocol/msg"
+	"github.com/mag1666888-del/protocol/sdkws"
 	"github.com/openimsdk/tools/db/mongoutil"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

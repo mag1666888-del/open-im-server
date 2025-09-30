@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,18 +18,18 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/cache"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/cache/mcache"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/cache/redis"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/database/mgo"
-	"github.com/openimsdk/open-im-server/v3/pkg/dbbuild"
-	"github.com/openimsdk/open-im-server/v3/pkg/mqbuild"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/cache"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/cache/mcache"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/cache/redis"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/database/mgo"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/dbbuild"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/mqbuild"
 	"github.com/openimsdk/tools/discovery"
 	"github.com/openimsdk/tools/mq"
 	"github.com/openimsdk/tools/utils/runtimeenv"
 
-	conf "github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/controller"
+	conf "github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/controller"
 	"github.com/openimsdk/tools/log"
 	"google.golang.org/grpc"
 )

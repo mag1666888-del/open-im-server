@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,14 +18,14 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/webhook"
 	"github.com/openimsdk/tools/errs"
 
-	cbapi "github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/protocol/constant"
-	pbchat "github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
+	cbapi "github.com/mag1666888-del/my-open-im-server/v3/pkg/callbackstruct"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/protocol/constant"
+	pbchat "github.com/mag1666888-del/protocol/msg"
+	"github.com/mag1666888-del/protocol/sdkws"
 	"github.com/openimsdk/tools/mcontext"
 	"github.com/openimsdk/tools/utils/datautil"
 	"google.golang.org/protobuf/proto"

@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/servererrs"
 	"github.com/openimsdk/tools/errs"
 	"github.com/openimsdk/tools/log"
 	"github.com/redis/go-redis/v9"

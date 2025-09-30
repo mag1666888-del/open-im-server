@@ -4,14 +4,14 @@ import (
 	"context"
 	"errors"
 
-	"github.com/openimsdk/open-im-server/v3/internal/rpc/incrversion"
-	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/model"
-	"github.com/openimsdk/open-im-server/v3/pkg/util/hashutil"
-	"github.com/openimsdk/protocol/constant"
-	pbgroup "github.com/openimsdk/protocol/group"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/my-open-im-server/v3/internal/rpc/incrversion"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/authverify"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/servererrs"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/model"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/util/hashutil"
+	"github.com/mag1666888-del/protocol/constant"
+	pbgroup "github.com/mag1666888-del/protocol/group"
+	"github.com/mag1666888-del/protocol/sdkws"
 	"github.com/openimsdk/tools/log"
 )
 

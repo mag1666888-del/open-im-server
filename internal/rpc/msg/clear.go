@@ -4,8 +4,8 @@ import (
 	"context"
 	"strings"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
-	"github.com/openimsdk/protocol/msg"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/authverify"
+	"github.com/mag1666888-del/protocol/msg"
 	"github.com/openimsdk/tools/log"
 )
 

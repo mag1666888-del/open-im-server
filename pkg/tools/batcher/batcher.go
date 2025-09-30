@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/authverify"
 	"github.com/openimsdk/tools/errs"
 	"github.com/openimsdk/tools/utils/idutil"
 )

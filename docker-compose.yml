@@ -120,10 +120,10 @@ services:
           etcdctl --endpoints=http://127.0.0.1:2379 user add $${ETCD_ROOT_USER} --new-user-password=$${ETCD_ROOT_PASSWORD} || true
           etcdctl --endpoints=http://127.0.0.1:2379 user add $${ETCD_USERNAME} --new-user-password=$${ETCD_PASSWORD} || true
           
-          etcdctl --endpoints=http://127.0.0.1:2379 role add openim-role || true
-          etcdctl --endpoints=http://127.0.0.1:2379 role grant-permission openim-role --prefix=true readwrite / || true
-          etcdctl --endpoints=http://127.0.0.1:2379 role grant-permission openim-role --prefix=true readwrite "" || true
-          etcdctl --endpoints=http://127.0.0.1:2379 user grant-role $${ETCD_USERNAME} openim-role || true
+          etcdctl --endpoints=http://127.0.0.1:2379 role add my-open-im-role || true
+          etcdctl --endpoints=http://127.0.0.1:2379 role grant-permission my-open-im-role --prefix=true readwrite / || true
+          etcdctl --endpoints=http://127.0.0.1:2379 role grant-permission my-open-im-role --prefix=true readwrite "" || true
+          etcdctl --endpoints=http://127.0.0.1:2379 user grant-role $${ETCD_USERNAME} my-open-im-role || true
           
           etcdctl --endpoints=http://127.0.0.1:2379 user grant-role $${ETCD_ROOT_USER} $${ETCD_USERNAME} root || true
           
@@ -139,10 +139,10 @@ services:
             
             # Try to create/update the openIM user using root credentials
             etcdctl --endpoints=http://127.0.0.1:2379 --user=$${ETCD_ROOT_USER}:$${ETCD_ROOT_PASSWORD} user add $${ETCD_USERNAME} --new-user-password=$${ETCD_PASSWORD} --no-password-file || true
-            etcdctl --endpoints=http://127.0.0.1:2379 --user=$${ETCD_ROOT_USER}:$${ETCD_ROOT_PASSWORD} role add openim-role || true
-            etcdctl --endpoints=http://127.0.0.1:2379 --user=$${ETCD_ROOT_USER}:$${ETCD_ROOT_PASSWORD} role grant-permission openim-role --prefix=true readwrite / || true
-            etcdctl --endpoints=http://127.0.0.1:2379 --user=$${ETCD_ROOT_USER}:$${ETCD_ROOT_PASSWORD} role grant-permission openim-role --prefix=true readwrite "" || true
-            etcdctl --endpoints=http://127.0.0.1:2379 --user=$${ETCD_ROOT_USER}:$${ETCD_ROOT_PASSWORD} user grant-role $${ETCD_USERNAME} openim-role || true
+            etcdctl --endpoints=http://127.0.0.1:2379 --user=$${ETCD_ROOT_USER}:$${ETCD_ROOT_PASSWORD} role add my-open-im-role || true
+            etcdctl --endpoints=http://127.0.0.1:2379 --user=$${ETCD_ROOT_USER}:$${ETCD_ROOT_PASSWORD} role grant-permission my-open-im-role --prefix=true readwrite / || true
+            etcdctl --endpoints=http://127.0.0.1:2379 --user=$${ETCD_ROOT_USER}:$${ETCD_ROOT_PASSWORD} role grant-permission my-open-im-role --prefix=true readwrite "" || true
+            etcdctl --endpoints=http://127.0.0.1:2379 --user=$${ETCD_ROOT_USER}:$${ETCD_ROOT_PASSWORD} user grant-role $${ETCD_USERNAME} my-open-im-role || true
             etcdctl --endpoints=http://127.0.0.1:2379 user grant-role $${ETCD_ROOT_USER} $${ETCD_USERNAME} root || true
             
             echo "OpenIM user recreated with required permissions"
@@ -257,18 +257,18 @@ services:
     networks:
       - openim
 
-  openim-web-front:
+  my-open-im-web-front:
     image: ${OPENIM_WEB_FRONT_IMAGE}
-    container_name: openim-web-front
+    container_name: my-open-im-web-front
     restart: always
     ports:
       - "11001:80"
     networks:
       - openim
 
-  # openim-admin-front:
+  # my-open-im-admin-front:
   #   image: ${OPENIM_ADMIN_FRONT_IMAGE}
-  #   container_name: openim-admin-front
+  #   container_name: my-open-im-admin-front
   #   restart: always
   #   ports:
   #     - "11002:80"

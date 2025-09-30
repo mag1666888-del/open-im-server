@@ -1,4 +1,4 @@
-module github.com/openimsdk/open-im-server/v3
+module github.com/mag1666888-del/my-open-im-server/v3
 
 go 1.22.7
 
@@ -11,8 +11,8 @@ require (
 	github.com/golang-jwt/jwt/v4 v4.5.1
 	github.com/gorilla/websocket v1.5.1
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
+	github.com/mag1666888-del/protocol v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/mapstructure v1.5.0
-	github.com/openimsdk/protocol v0.0.73-alpha.14
 	github.com/openimsdk/tools v0.0.50-alpha.97
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/prometheus/client_golang v1.18.0
@@ -148,6 +148,7 @@ require (
 	github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe // indirect
 	github.com/mozillazg/go-httpheader v0.4.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
+	github.com/openimsdk/protocol v0.0.69-alpha.4 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
 	github.com/pierrec/lz4/v4 v4.1.21 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
@@ -219,3 +220,5 @@ require (
 	golang.org/x/crypto v0.27.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 )
+
+replace github.com/mag1666888-del/protocol => ../protocol

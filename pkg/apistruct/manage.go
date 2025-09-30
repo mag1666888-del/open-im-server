@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
 package apistruct
 
 import (
-	pbmsg "github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
+	pbmsg "github.com/mag1666888-del/protocol/msg"
+	"github.com/mag1666888-del/protocol/sdkws"
 )
 
 // SendMsg defines the structure for sending messages with various metadata.

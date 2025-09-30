@@ -4,17 +4,17 @@ import (
 	"context"
 	"sort"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/rpcli"
-	"github.com/openimsdk/protocol/constant"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/rpcli"
+	"github.com/mag1666888-del/protocol/constant"
 	"github.com/openimsdk/tools/log"
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/openimsdk/protocol/conversation"
-	"github.com/openimsdk/protocol/jssdk"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/relation"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/protocol/conversation"
+	"github.com/mag1666888-del/protocol/jssdk"
+	"github.com/mag1666888-del/protocol/msg"
+	"github.com/mag1666888-del/protocol/relation"
+	"github.com/mag1666888-del/protocol/sdkws"
 	"github.com/openimsdk/tools/mcontext"
 	"github.com/openimsdk/tools/utils/datautil"
 )

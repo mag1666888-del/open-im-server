@@ -27,7 +27,7 @@ scrape_configs:
     static_configs:
       - targets: [ 127.0.0.1:19100 ]
 
-  - job_name: openimserver-openim-api
+  - job_name: openimserver-my-open-im-api
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/api"
 #    static_configs:
@@ -35,7 +35,7 @@ scrape_configs:
 #        labels:
 #          namespace: default
 
-  - job_name: openimserver-openim-msggateway
+  - job_name: openimserver-my-open-im-msggateway
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/msg_gateway"
 #    static_configs:
@@ -44,7 +44,7 @@ scrape_configs:
 #        labels:
 #          namespace: default
 
-  - job_name: openimserver-openim-msgtransfer
+  - job_name: openimserver-my-open-im-msgtransfer
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/msg_transfer"
 #    static_configs:
@@ -53,7 +53,7 @@ scrape_configs:
 #        labels:
 #          namespace: default
 
-  - job_name: openimserver-openim-push
+  - job_name: openimserver-my-open-im-push
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/push"
 #    static_configs:
@@ -62,7 +62,7 @@ scrape_configs:
 #        labels:
 #          namespace: default
 
-  - job_name: openimserver-openim-rpc-auth
+  - job_name: openimserver-my-open-im-rpc-auth
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/auth"
 #    static_configs:
@@ -70,7 +70,7 @@ scrape_configs:
 #        labels:
 #          namespace: default
 
-  - job_name: openimserver-openim-rpc-conversation
+  - job_name: openimserver-my-open-im-rpc-conversation
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/conversation"
 #    static_configs:
@@ -78,7 +78,7 @@ scrape_configs:
 #        labels:
 #          namespace: default
 
-  - job_name: openimserver-openim-rpc-friend
+  - job_name: openimserver-my-open-im-rpc-friend
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/friend"
 #    static_configs:
@@ -86,7 +86,7 @@ scrape_configs:
 #        labels:
 #          namespace: default
 
-  - job_name: openimserver-openim-rpc-group
+  - job_name: openimserver-my-open-im-rpc-group
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/group"
 #    static_configs:
@@ -94,7 +94,7 @@ scrape_configs:
 #        labels:
 #          namespace: default.
 
-  - job_name: openimserver-openim-rpc-msg
+  - job_name: openimserver-my-open-im-rpc-msg
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/msg"
 #    static_configs:
@@ -102,7 +102,7 @@ scrape_configs:
 #        labels:
 #          namespace: default
 
-  - job_name: openimserver-openim-rpc-third
+  - job_name: openimserver-my-open-im-rpc-third
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/third"
 #    static_configs:
@@ -110,7 +110,7 @@ scrape_configs:
 #        labels:
 #          namespace: default
 
-  - job_name: openimserver-openim-rpc-user
+  - job_name: openimserver-my-open-im-rpc-user
     http_sd_configs:
       - url: "http://127.0.0.1:10002/prometheus_discovery/user"
 #    static_configs:

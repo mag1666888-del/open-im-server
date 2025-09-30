@@ -17,11 +17,11 @@ package rpccache
 import (
 	"context"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/cache/cachekey"
-	"github.com/openimsdk/open-im-server/v3/pkg/localcache"
-	"github.com/openimsdk/open-im-server/v3/pkg/rpcli"
-	pbconversation "github.com/openimsdk/protocol/conversation"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/cache/cachekey"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/localcache"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/rpcli"
+	pbconversation "github.com/mag1666888-del/protocol/conversation"
 	"github.com/openimsdk/tools/errs"
 	"github.com/openimsdk/tools/log"
 	"github.com/openimsdk/tools/utils/datautil"

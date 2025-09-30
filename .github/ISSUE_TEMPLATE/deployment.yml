@@ -10,7 +10,7 @@ body:
       value: "Thank you for taking the time to fill out the deployment issue report. Please provide as much information as possible to help us understand and resolve the issue."
 
   - type: input
-    id: openim-server-version
+    id: my-open-im-server-version
     attributes:
       label: OpenIM Server Version
       description: "Please provide the version number of OpenIM Server you are using."

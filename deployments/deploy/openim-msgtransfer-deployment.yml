@@ -1,50 +1,50 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: openim-msgtransfer-server
+  name: my-open-im-msgtransfer-server
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: openim-msgtransfer-server
+      app: my-open-im-msgtransfer-server
   template:
     metadata:
       labels:
-        app: openim-msgtransfer-server
+        app: my-open-im-msgtransfer-server
     spec:
       containers:
-        - name: openim-msgtransfer-container
-          image: openim/openim-msgtransfer:v3.8.3
+        - name: my-open-im-msgtransfer-container
+          image: my-open-im/my-open-im-msgtransfer:v3.8.3
           env:
             - name: CONFIG_PATH
               value: "/config"
             - name: IMENV_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: openim-redis-secret
+                  name: my-open-im-redis-secret
                   key: redis-password
             - name: IMENV_MONGODB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: openim-mongo-secret
+                  name: my-open-im-mongo-secret
                   key: mongo_openim_username
             - name: IMENV_MONGODB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: openim-mongo-secret
+                  name: my-open-im-mongo-secret
                   key: mongo_openim_password
             - name: IMENV_KAFKA_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: openim-kafka-secret
+                  name: my-open-im-kafka-secret
                   key: kafka-password
           volumeMounts:
-            - name: openim-config
+            - name: my-open-im-config
               mountPath: "/config"
               readOnly: true
           ports:
             - containerPort: 12020
       volumes:
-        - name: openim-config
+        - name: my-open-im-config
           configMap:
-            name: openim-config
+            name: my-open-im-config

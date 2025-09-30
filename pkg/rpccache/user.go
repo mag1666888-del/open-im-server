@@ -16,13 +16,13 @@ package rpccache
 
 import (
 	"context"
-	"github.com/openimsdk/open-im-server/v3/pkg/rpcli"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/rpcli"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/cache/cachekey"
-	"github.com/openimsdk/open-im-server/v3/pkg/localcache"
-	"github.com/openimsdk/protocol/sdkws"
-	"github.com/openimsdk/protocol/user"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/cache/cachekey"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/localcache"
+	"github.com/mag1666888-del/protocol/sdkws"
+	"github.com/mag1666888-del/protocol/user"
 	"github.com/openimsdk/tools/errs"
 	"github.com/openimsdk/tools/log"
 	"github.com/redis/go-redis/v9"

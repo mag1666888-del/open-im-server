@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	pbconversation "github.com/openimsdk/protocol/conversation"
+	pbconversation "github.com/mag1666888-del/protocol/conversation"
 	"github.com/openimsdk/tools/log"
 	"github.com/openimsdk/tools/mcontext"
 )

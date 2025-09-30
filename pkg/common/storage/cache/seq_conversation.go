@@ -2,7 +2,7 @@ package cache
 
 import (
 	"context"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/database"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/database"
 )
 
 type SeqConversationCache interface {

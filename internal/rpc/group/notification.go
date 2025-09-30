@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,24 +21,24 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/openimsdk/open-im-server/v3/pkg/rpcli"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/rpcli"
 
 	"go.mongodb.org/mongo-driver/mongo"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/authverify"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/convert"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/servererrs"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/controller"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/database"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/model"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/storage/versionctx"
-	"github.com/openimsdk/open-im-server/v3/pkg/msgprocessor"
-	"github.com/openimsdk/open-im-server/v3/pkg/notification"
-	"github.com/openimsdk/open-im-server/v3/pkg/notification/common_user"
-	"github.com/openimsdk/protocol/constant"
-	pbgroup "github.com/openimsdk/protocol/group"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/authverify"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/convert"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/servererrs"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/controller"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/database"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/model"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/storage/versionctx"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/msgprocessor"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/notification"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/notification/common_user"
+	"github.com/mag1666888-del/protocol/constant"
+	pbgroup "github.com/mag1666888-del/protocol/group"
+	"github.com/mag1666888-del/protocol/msg"
+	"github.com/mag1666888-del/protocol/sdkws"
 	"github.com/openimsdk/tools/errs"
 	"github.com/openimsdk/tools/log"
 	"github.com/openimsdk/tools/mcontext"

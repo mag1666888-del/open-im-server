@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/openimsdk/protocol/msggateway"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/protocol/msggateway"
+	"github.com/mag1666888-del/protocol/sdkws"
 	"github.com/openimsdk/tools/discovery"
 	"github.com/openimsdk/tools/errs"
 	"github.com/openimsdk/tools/log"
@@ -15,7 +15,7 @@ import (
 	"golang.org/x/sync/errgroup"
 	"google.golang.org/grpc"
 
-	conf "github.com/openimsdk/open-im-server/v3/pkg/common/config"
+	conf "github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
 )
 
 type OnlinePusher interface {

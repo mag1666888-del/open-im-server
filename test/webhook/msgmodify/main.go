@@ -8,8 +8,8 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	cbapi "github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
-	"github.com/openimsdk/protocol/constant"
+	cbapi "github.com/mag1666888-del/my-open-im-server/v3/pkg/callbackstruct"
+	"github.com/mag1666888-del/protocol/constant"
 )
 
 func main() {

@@ -2,7 +2,7 @@ package msggateway
 
 import (
 	"context"
-	"github.com/openimsdk/protocol/sdkws"
+	"github.com/mag1666888-del/protocol/sdkws"
 	"github.com/openimsdk/tools/log"
 	"github.com/openimsdk/tools/utils/datautil"
 	"google.golang.org/protobuf/proto"

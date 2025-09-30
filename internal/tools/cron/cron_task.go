@@ -3,11 +3,11 @@ package cron
 import (
 	"context"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	disetcd "github.com/openimsdk/open-im-server/v3/pkg/common/discovery/etcd"
-	pbconversation "github.com/openimsdk/protocol/conversation"
-	"github.com/openimsdk/protocol/msg"
-	"github.com/openimsdk/protocol/third"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	disetcd "github.com/mag1666888-del/my-open-im-server/v3/pkg/common/discovery/etcd"
+	pbconversation "github.com/mag1666888-del/protocol/conversation"
+	"github.com/mag1666888-del/protocol/msg"
+	"github.com/mag1666888-del/protocol/third"
 	"github.com/openimsdk/tools/discovery"
 	"github.com/openimsdk/tools/discovery/etcd"
 	"github.com/openimsdk/tools/errs"

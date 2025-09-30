@@ -1,4 +1,4 @@
-// Copyright © 2023 OpenIM. All rights reserved.
+// Copyright © 2024 my-open-im. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,12 +17,12 @@ package user
 import (
 	"context"
 
-	"github.com/openimsdk/open-im-server/v3/pkg/common/webhook"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/webhook"
 	"github.com/openimsdk/tools/utils/datautil"
 
-	cbapi "github.com/openimsdk/open-im-server/v3/pkg/callbackstruct"
-	"github.com/openimsdk/open-im-server/v3/pkg/common/config"
-	pbuser "github.com/openimsdk/protocol/user"
+	cbapi "github.com/mag1666888-del/my-open-im-server/v3/pkg/callbackstruct"
+	"github.com/mag1666888-del/my-open-im-server/v3/pkg/common/config"
+	pbuser "github.com/mag1666888-del/protocol/user"
 )
 
 func (s *userServer) webhookBeforeUpdateUserInfo(ctx context.Context, before *config.BeforeConfig, req *pbuser.UpdateUserInfoReq) error {
