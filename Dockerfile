@@ -10,10 +10,27 @@ WORKDIR $SERVER_DIR
 # Set the Go proxy to improve dependency resolution speed
 # ENV GOPROXY=https://goproxy.io,direct
 
-# Copy all files from the current directory into the container
-COPY . .
+# Configure Go environment for private repositories
+ENV GONOPROXY=github.com/mag1666888-del/*
+ENV GONOSUMDB=github.com/mag1666888-del/*
+ENV GOPRIVATE=github.com/mag1666888-del/*
+
+# Install Git for cloning private repositories
+RUN apk add --no-cache git
+
+# Copy go.mod and go.sum first
+COPY go.mod go.sum ./
+
+# Configure Git for private repositories
+RUN git config --global url."https://github.com/mag1666888-del/".insteadOf "git@github.com:mag1666888-del/"
+
+# Clone the protocol dependency from Git
+RUN git clone https://github.com/mag1666888-del/protocol.git /protocol
 
 RUN go mod download
+
+# Copy all files from the current directory into the container
+COPY . .
 
 # Install Mage to use for building the application
 RUN go install github.com/magefile/mage@v1.15.0
@@ -24,12 +41,23 @@ RUN mage build
 # Using Alpine Linux with Go environment for the final image
 FROM golang:1.22-alpine
 
-# Install necessary packages, such as bash
-RUN apk add --no-cache bash
+# Install necessary packages, such as bash and git
+RUN apk add --no-cache bash git
+
+# Configure Go environment for private repositories
+ENV GONOPROXY=github.com/mag1666888-del/*
+ENV GONOSUMDB=github.com/mag1666888-del/*
+ENV GOPRIVATE=github.com/mag1666888-del/*
 
 # Set the environment and work directory
 ENV SERVER_DIR=/openim-server
 WORKDIR $SERVER_DIR
+
+# Configure Git for private repositories
+RUN git config --global url."https://github.com/mag1666888-del/".insteadOf "git@github.com:mag1666888-del/"
+
+# Clone the protocol dependency from Git
+RUN git clone https://github.com/mag1666888-del/protocol.git /protocol
 
 
 # Copy the compiled binaries and mage from the builder image to the final image
