@@ -20,4 +20,4 @@ COPY --from=builder /out/openim-api /app/openim-api
 COPY --from=builder /app/config /app/config
 COPY --from=builder /app/start-config.yml /app/start-config.yml
 EXPOSE 10001
-ENTRYPOINT ["/app/openim-api"]
+ENTRYPOINT ["/app/openim-api", "-c", "/app/config"]
