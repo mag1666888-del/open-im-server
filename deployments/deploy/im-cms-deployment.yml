@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: im-cms
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: im-cms
+  template:
+    metadata:
+      labels:
+        app: im-cms
+    spec:
+      initContainers:
+        - name: nginx-config-init
+          image: busybox:1.35
+          command: ['sh', '-c', 'cp /config/im-cms-nginx.conf /etc/nginx/conf.d/default.conf']
+          volumeMounts:
+            - name: openim-config
+              mountPath: /config
+              readOnly: true
+            - name: nginx-conf-dir
+              mountPath: /etc/nginx/conf.d
+      containers:
+        - name: im-cms-container
+          image: mag1666888/im-cms:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources: {}
+          volumeMounts:
+            - name: nginx-conf-dir
+              mountPath: /etc/nginx/conf.d
+      volumes:
+        - name: nginx-conf-dir
+          emptyDir: {}
+        - name: openim-config
+          configMap:
+            name: openim-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: im-cms-service
+spec:
+  selector:
+    app: im-cms
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: im-cms-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: im-cms-service
+                port:
+                  number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: im-cms-api-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: "/$2"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /api(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: openim-api-service
+                port:
+                  number: 10002
+
+

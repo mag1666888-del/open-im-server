@@ -14,38 +14,38 @@ spec:
     spec:
       containers:
         - name: user-rpc-server-container
-          image: my-open-im/my-open-im-rpc-user:v3.8.3
+          image: mag1666888/openim-rpc-user:dev
           env:
             - name: CONFIG_PATH
               value: "/config"
             - name: IMENV_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: my-open-im-redis-secret
+                  name: openim-redis-secret
                   key: redis-password
             - name: IMENV_MONGODB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: my-open-im-mongo-secret
+                  name: openim-mongo-secret
                   key: mongo_openim_username
             - name: IMENV_MONGODB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: my-open-im-mongo-secret
+                  name: openim-mongo-secret
                   key: mongo_openim_password
             - name: IMENV_KAFKA_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: my-open-im-kafka-secret
+                  name: openim-kafka-secret
                   key: kafka-password
           volumeMounts:
-            - name: my-open-im-config
+            - name: openim-config
               mountPath: "/config"
               readOnly: true
           ports:
             - containerPort: 10320
             - containerPort: 12320
       volumes:
-        - name: my-open-im-config
+        - name: openim-config
           configMap:
-            name: my-open-im-config
+            name: openim-config

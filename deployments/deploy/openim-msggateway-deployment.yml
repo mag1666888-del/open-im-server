@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: messagegateway-rpc-server
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: messagegateway-rpc-server
@@ -13,24 +13,25 @@ spec:
         app: messagegateway-rpc-server
     spec:
       containers:
-        - name: my-open-im-msggateway-container
-          image: my-open-im/my-open-im-msggateway:v3.8.3
+        - name: openim-msggateway-container
+          image: mag1666888/openim-msggateway:dev
           env:
             - name: CONFIG_PATH
               value: "/config"
             - name: IMENV_REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: my-open-im-redis-secret
+                  name: openim-redis-secret
                   key: redis-password
           volumeMounts:
-            - name: my-open-im-config
+            - name: openim-config
               mountPath: "/config"
               readOnly: true
           ports:
+            - containerPort: 10001  
             - containerPort: 10140
-            - containerPort: 12001
+            - containerPort: 12140
       volumes:
-        - name: my-open-im-config
+        - name: openim-config
           configMap:
-            name: my-open-im-config
+            name: openim-config

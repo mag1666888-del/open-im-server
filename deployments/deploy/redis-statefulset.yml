@@ -38,7 +38,7 @@ spec:
       volumes:
         - name: redis-config-volume
           configMap:
-            name: my-open-im-config
+            name: openim-config
         - name: redis-data
           persistentVolumeClaim:
             claimName: redis-pvc

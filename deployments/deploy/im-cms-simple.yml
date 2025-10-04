@@ -1,0 +1,158 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: im-cms-nginx-config
+data:
+  default.conf: |
+    server {
+      listen 80;
+      listen [::]:80;
+      server_name _;
+
+      root /usr/share/nginx/html;
+      index index.html;
+
+      location / {
+        try_files $uri $uri/ /index.html;
+      }
+
+      location ~* \.((js)|(css)|(png)|(jpg)|(jpeg)|(gif)|(ico)|(svg))$ {
+        try_files $uri =404;
+        expires 1y;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+      }
+
+      # IM 系统服务代理 (端口 10002)
+      location /api/im/ {
+        proxy_pass http://openim-api-service:10002/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300;
+        proxy_send_timeout 300;
+      }
+
+      # 用户服务代理 (端口 10008) - OpenIM Chat API
+      location /api/user/ {
+        proxy_pass http://chat-api-service:10008/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300;
+        proxy_send_timeout 300;
+      }
+
+      # 管理后台服务代理 (端口 10009) - OpenIM Admin API
+      location /api/admin/ {
+        proxy_pass http://admin-api-service:10009/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300;
+        proxy_send_timeout 300;
+      }
+    }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: im-cms
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: im-cms
+  template:
+    metadata:
+      labels:
+        app: im-cms
+    spec:
+      containers:
+        - name: im-cms-container
+          image: nginx:1.25-alpine
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources: {}
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d
+            - name: static-files
+              mountPath: /usr/share/nginx/html
+      initContainers:
+        - name: copy-static-files
+          image: mag1666888/im-cms:latest
+          command: ['sh', '-c', 'cp -r /usr/share/nginx/html/* /static/']
+          volumeMounts:
+            - name: static-files
+              mountPath: /static
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: im-cms-nginx-config
+        - name: static-files
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: im-cms-service
+spec:
+  selector:
+    app: im-cms
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: im-cms-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: im-cms-service
+                port:
+                  number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: im-cms-api-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: "/$2"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /api(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: openim-api-service
+                port:
+                  number: 10002

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-open-im-crontask
+  name: openim-crontask
 spec:
   replicas: 2
   selector:
@@ -14,15 +14,15 @@ spec:
     spec:
       containers:
         - name: crontask-container
-          image: my-open-im/my-open-im-crontask:v3.8.3
+          image: mag1666888/openim-crontask:dev
           env:
             - name: CONFIG_PATH
               value: "/config"
           volumeMounts:
-            - name: my-open-im-config
+            - name: openim-config
               mountPath: "/config"
               readOnly: true
       volumes:
-        - name: my-open-im-config
+        - name: openim-config
           configMap:
-            name: my-open-im-config
+            name: openim-config

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: my-open-im-config
+  name: openim-config
 data:
   discovery.yml: |
     enable: "kubernetes" # "kubernetes" or "etcd"
@@ -41,21 +41,14 @@ data:
     isSimplify: true
 
   mongodb.yml: |
-    # URI for database connection, leave empty if using address and credential settings directly
-    uri: ''
-    # List of MongoDB server addresses
-    address: [ mongo-service:37017 ]
-    # Name of the database
+    uri: "mongodb://minio_pC5wMB:rI57PJsJhnz_qlRkfnTa0RPT@47.237.103.4:27017/openim_v3?authSource=admin&directConnection=true"
+    address: []
     database: openim_v3
-    # Username for database authentication
-    username: ''  # openIM
-    # Password for database authentication
-    password: '' # openIM123
-    # Authentication source for database authentication, if use root user, set it to admin
-    authSource: openim_v3
-    # Maximum number of connections in the connection pool
+    username:
+    password:
+    authSource:
+    mongoMode: "standalone"
     maxPoolSize: 100
-    # Maximum number of retry attempts for a failed database connection
     maxRetry: 10
 
   local-cache.yml: |
@@ -84,7 +77,7 @@ data:
       successExpire: 300
       failedExpire: 5
 
-  my-open-im-api.yml: |
+  openim-api.yml: |
     api:
       # Listening IP; 0.0.0.0 means both internal and external IPs are listened to, default is recommended
       listenIP: 0.0.0.0
@@ -101,7 +94,7 @@ data:
       # This address can be accessed via a browser
       grafanaURL: http://127.0.0.1:13000/
 
-  my-open-im-rpc-user.yml: |
+  openim-rpc-user.yml: |
     rpc:
       # API or other RPCs can access this RPC through this IP; if left blank, the internal network IP is obtained by default
       registerIP:
@@ -119,19 +112,19 @@ data:
       # Prometheus listening ports, must be consistent with the number of rpc.ports
       ports: [ 12320 ]
 
-  my-open-im-crontask.yml: |
+  openim-crontask.yml: |
     cronExecuteTime: 0 2 * * *
     retainChatRecords: 365
     fileExpireTime: 180
     deleteObjectType: ["msg-picture","msg-file", "msg-voice","msg-video","msg-video-snapshot","sdklog"]
 
-  my-open-im-msggateway.yml: |
+  openim-msggateway.yml: |
     rpc:
       # The IP address where this RPC service registers itself; if left blank, it defaults to the internal network IP
       registerIP:
       # autoSetPorts indicates whether to automatically set the ports
       # if you use in kubernetes, set it to false
-      autoSetPorts: false
+      autoSetPorts: true
       # List of ports that the RPC service listens on; configuring multiple ports will launch multiple instances. These must match the number of configured prometheus ports
       # It will only take effect when autoSetPorts is set to false.
       ports: [ 10140 ]
@@ -155,7 +148,7 @@ data:
       # WebSocket connection handshake timeout in seconds
       websocketTimeout: 10
 
-  my-open-im-msgtransfer.yml: |
+  openim-msgtransfer.yml: |
     prometheus:
       # Enable or disable Prometheus monitoring
       enable: true
@@ -163,7 +156,7 @@ data:
       # Because four instances have been launched, four ports need to be specified
       ports: [ 12020 ]
 
-  my-open-im-push.yml: |
+  openim-push.yml: |
     rpc:
       # The IP address where this RPC service registers itself; if left blank, it defaults to the internal network IP
       registerIP:
@@ -211,7 +204,7 @@ data:
 
     fullUserCache: true
 
-  my-open-im-rpc-auth.yml: |
+  openim-rpc-auth.yml: |
     rpc:
       # The IP address where this RPC service registers itself; if left blank, it defaults to the internal network IP
       registerIP:
@@ -234,7 +227,7 @@ data:
       # Token validity period, in days
       expire: 90
 
-  my-open-im-rpc-conversation.yml: |
+  openim-rpc-conversation.yml: |
     rpc:
       # The IP address where this RPC service registers itself; if left blank, it defaults to the internal network IP
       registerIP:
@@ -257,7 +250,7 @@ data:
       # Token validity period, in days
       expire: 90
 
-  my-open-im-rpc-friend.yml: |
+  openim-rpc-friend.yml: |
     rpc:
       # The IP address where this RPC service registers itself; if left blank, it defaults to the internal network IP
       registerIP:
@@ -276,7 +269,7 @@ data:
       # List of ports that Prometheus listens on; these must match the number of rpc.ports to ensure correct monitoring setup
       ports: [ 12240 ]
 
-  my-open-im-rpc-group.yml: |
+  openim-rpc-group.yml: |
     rpc:
       # The IP address where this RPC service registers itself; if left blank, it defaults to the internal network IP
       registerIP:
@@ -297,7 +290,7 @@ data:
 
     enableHistoryForNewMembers: true
 
-  my-open-im-rpc-msg.yml: |
+  openim-rpc-msg.yml: |
     rpc:
       # The IP address where this RPC service registers itself; if left blank, it defaults to the internal network IP
       registerIP:
@@ -319,7 +312,7 @@ data:
     # Does sending messages require friend verification
     friendVerify: false
 
-  my-open-im-rpc-third.yml: |
+  openim-rpc-third.yml: |
     rpc:
       # The IP address where this RPC service registers itself; if left blank, it defaults to the internal network IP
       registerIP:
@@ -384,15 +377,15 @@ data:
 
   kafka.yml: |
     # Username for authentication
-    username: ''
+    username: 'myopenim'
     # Password for authentication
-    password: ''
+    password: 'rI57PJsJhnz_qlRkfnTa0RPT'
     # Producer acknowledgment settings
     producerAck:
     # Compression type to use (e.g., none, gzip, snappy)
     compressType: none
     # List of Kafka broker addresses
-    address: [ "kafka-service:19094" ]
+    address: [ "47.237.103.4:9096" ]
     # Kafka topic for Redis integration
     toRedisTopic: toRedis
     # Kafka topic for MongoDB integration
@@ -425,9 +418,9 @@ data:
       insecureSkipVerify: false
 
   redis.yml: |
-    address: [ "redis-service:16379" ]
+    address: [ "47.237.103.4:6379" ]
     username:
-    password:  # openIM123
+    password: 'rI57PJsJhnz_qlRkfnTa0RPT'  # openIM123
     clusterMode: false
     db: 0
     maxRetry: 10
@@ -437,18 +430,51 @@ data:
     # Name of the bucket in MinIO
     bucket: openim
     # Access key ID for MinIO authentication
-    accessKeyID: root   
+    accessKeyID: minio_pC5wMB   
     # Secret access key for MinIO authentication
-    secretAccessKey:    # openIM123
+    secretAccessKey: 'rI57PJsJhnz_qlRkfnTa0RPT'    # openIM123
     # Session token for MinIO authentication (optional)
     sessionToken:
     # Internal address of the MinIO server
-    internalAddress: minio-service:10005
+    internalAddress: 47.237.103.4:9000
     # External address of the MinIO server, accessible from outside. Supports both HTTP and HTTPS using a domain name
     externalAddress: http://minio-service:10005
     # Flag to enable or disable public read access to the bucket
     publicRead: "false"
 
+  
+  im-cms-nginx.conf: |
+    server {
+      listen 80;
+      listen [::]:80;
+      server_name _;
+
+      root /usr/share/nginx/html;
+      index index.html;
+
+      location / {
+        try_files $uri $uri/ /index.html;
+      }
+
+      location ~* \.((js)|(css)|(png)|(jpg)|(jpeg)|(gif)|(ico)|(svg))$ {
+        try_files $uri =404;
+        expires 1y;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+      }
+
+      location /api/ {
+        proxy_pass http://openim-api-service:10002/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300;
+        proxy_send_timeout 300;
+      }
+    }
   notification.yml: |
     groupCreated:
       isSendMsg: true
@@ -996,60 +1022,60 @@ data:
       - job_name: node_exporter
         static_configs:
           - targets: [ internal_ip:20500 ]
-      - job_name: openimserver-my-open-im-api
+      - job_name: openimserver-openim-api
         static_configs:
           - targets: [ internal_ip:12002 ]
             labels:
               namespace: default
-      - job_name: openimserver-my-open-im-msggateway
+      - job_name: openimserver-openim-msggateway
         static_configs:
           - targets: [ internal_ip:12140 ]
     #      - targets: [ internal_ip:12140, internal_ip:12141, internal_ip:12142, internal_ip:12143, internal_ip:12144, internal_ip:12145, internal_ip:12146, internal_ip:12147, internal_ip:12148, internal_ip:12149, internal_ip:12150, internal_ip:12151, internal_ip:12152, internal_ip:12153, internal_ip:12154, internal_ip:12155 ]
             labels:
               namespace: default
-      - job_name: openimserver-my-open-im-msgtransfer
+      - job_name: openimserver-openim-msgtransfer
         static_configs:
           - targets: [ internal_ip:12020, internal_ip:12021, internal_ip:12022, internal_ip:12023, internal_ip:12024, internal_ip:12025, internal_ip:12026, internal_ip:12027 ]
     #      - targets: [ internal_ip:12020, internal_ip:12021, internal_ip:12022, internal_ip:12023, internal_ip:12024, internal_ip:12025, internal_ip:12026, internal_ip:12027, internal_ip:12028, internal_ip:12029, internal_ip:12030, internal_ip:12031, internal_ip:12032, internal_ip:12033, internal_ip:12034, internal_ip:12035 ]
             labels:
               namespace: default
-      - job_name: openimserver-my-open-im-push
+      - job_name: openimserver-openim-push
         static_configs:
           - targets: [ internal_ip:12170, internal_ip:12171, internal_ip:12172, internal_ip:12173, internal_ip:12174, internal_ip:12175, internal_ip:12176, internal_ip:12177 ]
     #      - targets: [ internal_ip:12170, internal_ip:12171, internal_ip:12172, internal_ip:12173, internal_ip:12174, internal_ip:12175, internal_ip:12176, internal_ip:12177, internal_ip:12178, internal_ip:12179, internal_ip:12180,  internal_ip:12182, internal_ip:12183, internal_ip:12184, internal_ip:12185, internal_ip:12186 ]
             labels:
               namespace: default
-      - job_name: openimserver-my-open-im-rpc-auth
+      - job_name: openimserver-openim-rpc-auth
         static_configs:
           - targets: [ internal_ip:12200 ]
             labels:
               namespace: default
-      - job_name: openimserver-my-open-im-rpc-conversation
+      - job_name: openimserver-openim-rpc-conversation
         static_configs:
           - targets: [ internal_ip:12220 ]
             labels:
               namespace: default
-      - job_name: openimserver-my-open-im-rpc-friend
+      - job_name: openimserver-openim-rpc-friend
         static_configs:
           - targets: [ internal_ip:12240 ]
             labels:
               namespace: default
-      - job_name: openimserver-my-open-im-rpc-group
+      - job_name: openimserver-openim-rpc-group
         static_configs:
           - targets: [ internal_ip:12260 ]
             labels:
               namespace: default
-      - job_name: openimserver-my-open-im-rpc-msg
+      - job_name: openimserver-openim-rpc-msg
         static_configs:
           - targets: [ internal_ip:12280 ]
             labels:
               namespace: default
-      - job_name: openimserver-my-open-im-rpc-third
+      - job_name: openimserver-openim-rpc-third
         static_configs:
           - targets: [ internal_ip:12300 ]
             labels:
               namespace: default
-      - job_name: openimserver-my-open-im-rpc-user
+      - job_name: openimserver-openim-rpc-user
         static_configs:
           - targets: [ internal_ip:12320 ]
             labels:

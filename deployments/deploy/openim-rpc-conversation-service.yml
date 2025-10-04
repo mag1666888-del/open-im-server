@@ -6,11 +6,11 @@ spec:
   selector:
     app: conversation-rpc-server
   ports:
-    - name: http-10220
+    - name: grpc
       protocol: TCP
       port: 10220
       targetPort: 10220
-    - name: prometheus-12220
+    - name: prometheus
       protocol: TCP
       port: 12220
       targetPort: 12220
